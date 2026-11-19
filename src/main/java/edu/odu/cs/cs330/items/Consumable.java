@@ -111,8 +111,8 @@ public class Consumable implements Item {
 
         Consumable rhsItem = (Consumable) rhs;
 
-        // Refer to the previous assignment
-        return false;
+        return this.getName().equals(rhsItem.getName())
+            && this.getEffect().equals(rhsItem.getEffect());
     }
 
     /**
@@ -124,8 +124,7 @@ public class Consumable implements Item {
     @Override
     public int hashCode()
     {
-        // Refer to the previous assignment
-        return -1;
+        return this.getName().hashCode() + this.getEffect().hashCode();
     }
 
     /**
@@ -134,6 +133,10 @@ public class Consumable implements Item {
     @Override
     public String toString()
     {
-        return "  Refer to the previous assignment...";
+        return String.format(FMT_STR,
+            this.getName(),
+            this.getEffect(),
+            this.getNumberOfUses()
+        );
     }
 }
